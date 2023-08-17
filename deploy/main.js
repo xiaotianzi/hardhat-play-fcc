@@ -6,13 +6,13 @@
 // global scope, and execute the script.
 const { network, run } = require("hardhat")
 
-const { deployApiConsumer } = require("./deployApiConsumer")
-const { deployAutomationCounter } = require("./deployAutomationCounter")
-const { deployPriceConsumerV3 } = require("./deployPriceConsumerV3")
-const { deployRandomNumberConsumer } = require("./deployRandomNumberConsumer")
+const { deployApiConsumer } = require("../scripts/deployment/deployApiConsumer")
+const { deployAutomationCounter } = require("../scripts/deployment/deployAutomationCounter")
+const { deployPriceConsumerV3 } = require("../scripts/deployment/deployPriceConsumerV3")
+const { deployRandomNumberConsumer } = require("../scripts/deployment/deployRandomNumberConsumer")
 const {
     deployRandomNumberDirectFundingConsumer,
-} = require("./deployRandomNumberDirectFundingConsumer")
+} = require("../scripts/deployment/deployRandomNumberDirectFundingConsumer")
 
 async function main() {
     await run("compile")
@@ -26,7 +26,4 @@ async function main() {
 
 // We recommend this pattern to be able to use async/await everywhere
 // and properly handle errors.
-main().catch((error) => {
-    console.error(error)
-    process.exitCode = 1
-})
+module.exports = main
